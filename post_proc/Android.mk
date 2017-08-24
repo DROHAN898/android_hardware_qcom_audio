@@ -28,7 +28,8 @@ LOCAL_MODULE:= libqcompostprocbundle
 
 LOCAL_C_INCLUDES := \
 	external/tinyalsa/include \
-	$(call include-path-for, audio-effects)
+	$(call include-path-for, audio-effects) \
+	$(PRODUCT_VENDOR_KERNEL_HEADERS)
 
 LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
@@ -60,8 +61,9 @@ LOCAL_MODULE_OWNER := qcom
 LOCAL_PROPRIETARY_MODULE := true
 
 LOCAL_C_INCLUDES := \
-	$(call project-path-for,qcom-audio)/hal \
-	$(call include-path-for, audio-effects)
+	external/tinyalsa/include \
+	$(call include-path-for, audio-effects) \
+	$(PRODUCT_VENDOR_KERNEL_HEADERS)
 
 LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
